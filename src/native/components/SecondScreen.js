@@ -5,13 +5,16 @@ import {
 	Image,
 	TouchableOpacity,
 	Animated,
-	Easing
+	Easing,
+	Text
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
 
 import arrowImg from '../../images/left-arrow.png';
+import BottomBar from './BottomBar';
+import RestaurantCard from './RestaurantCard';
 
-import Tabbar from 'react-native-tabbar-bottom'
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Thumbnail, InputGroup, Input, Content, List, ListItem, Card, CardItem } from 'native-base';
 
 
 const SIZE = 40;
@@ -54,42 +57,24 @@ export default class SecondScreen extends Component {
 			outputRange: [1, SIZE],
 		});
 
+		var items = ['Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho','Emre Can', 'Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho','Emre Can', 'Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho','Emre Can', 'Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho','Emre Can'];
+
 		return (
-			<View style={styles.container}>
-				<TouchableOpacity onPress={this._onPress}
-					style={styles.button}
-					activeOpacity={1}>
-					<Image style={styles.image} source={arrowImg} />
-				</TouchableOpacity>
-				<Animated.View style={[ styles.circle, {transform: [{scale: changeScale}]} ]} />
-				<Tabbar
-          stateFunc={(tab) => {
-            this.setState({page: tab.page})
-            //this.props.navigation.setParams({tabTitle: tab.title})
-          }}
-          activePage={this.state.page}
-          tabs={[
-            {
-              page: "HomeScreen",
-              icon: "home",
-							badgeNumber: 1,
-            },
-            {
-              page: "ChatScreen",
-              icon: "cart",
-              badgeNumber: 7,
-            },
-						{
-							page: "ProfileScreen",
-							icon: "person",
-						},
-            {
-              page: "SearchScreen",
-              icon: "search",
-            },
-          ]}
-        />
-			</View>
+			<Container>
+				<View searchBar style={{flexDirection: 'row', padding:10}}>
+
+						<InputGroup rounded style={{flex:1, backgroundColor:'#fff',height:30, paddingLeft:10, paddingRight:10}}>
+							<Icon name="ios-search" />
+							<Input style={{height:20}} placeholder="Search Article" />
+							<Icon name="ios-list" />
+						</InputGroup>
+
+						<Button transparent style={{height:30}} onPress={() => null}>
+							<Text>Search</Text>
+						</Button>
+				</View>
+				<BottomBar/>
+			</Container>
 		);
 	}
 }

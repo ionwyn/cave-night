@@ -1,4 +1,11 @@
 {
   "name": "rnsk",
-  "displayName": "rnsk"
+  "displayName": "rnsk",
+  "expo": {
+        "sdkVersion": "16.0.0",
+        "androidStatusBar": {
+            "barStyle": "dark-content",
+            "backgroundColor": "#000000"
+        }
+    }
 }

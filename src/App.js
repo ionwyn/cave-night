@@ -8,12 +8,13 @@ import {
 } from 'react-native';
 
 import MainLogin from './native/components/MainLogin';
+import BeginRoute from './native/routes/index';
 
 export default class loginAnimation extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <MainLogin />
+        <BeginRoute />
       </View>
     );
   }
